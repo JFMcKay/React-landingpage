@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { motion, useCycle } from "framer-motion";
+import { motion } from "framer-motion";
 import Textloop from "react-text-loop";
 
 //STYLED-COMPONENTS SECTION
@@ -77,13 +77,18 @@ const ColumnRight = styled.div`
   }
   @media screen and (max-width: 768px) {
     width: 100%;
+    // required to prevent bouncing from animations
+    height: 80px;
     justify-content: flex-start;
     align-items: center;
     h1 {
         font-size: 2.5rem;
+        width: 100%;
+        height: 20%;
     }
   }
 `;
+
 
 //HERO START!! MOTION VARIABLES ARE REQUIRED IN THE FUNCTION
 
@@ -98,7 +103,7 @@ const Hero = () => {
     hidden: { opacity: 0, x: 1000 },
     visible: { opacity: 1, rotate: 1, x: 0 },
   };
-  
+
   return (
     <Section>
       <Container>
@@ -115,7 +120,7 @@ const Hero = () => {
             variants={fadeLeft}
             initial="hidden"
             animate="visible"
-            transition={{ type: "spring", duration: 2, bounce: 0.6 }}
+            transition={{ type: "spring", duration: 2, bounce: 0.6}}
           >
             McKay
           </motion.p>
@@ -134,7 +139,11 @@ const Hero = () => {
           <motion.div
           // onTap={() => skillSetText()}
           >
-            <motion.h1>
+            <motion.h1
+                initial={{rotate: -45}}
+                animate={{rotate: 45}}
+                transition={{type: "spring",duration: 2, repeat: Infinity, repeatType: "reverse" }}
+            >
               <Textloop interval={2000}>
                 <span>HTML</span>
                 <span>CSS</span>
