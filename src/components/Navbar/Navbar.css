@@ -56,9 +56,8 @@
 
     .nav-menu {
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
         width: 100%;
-        height: 500px;
         position: absolute;
         top: 80px;
         left: -100%;
@@ -106,7 +105,8 @@
 
     .fa-times {
         color: #fff;
-        font-size: 2rem;
+        font-size: 2rem; 
+        order: 3;
     }
 
     .nav-links-mobile {
@@ -126,8 +126,5 @@
         background: #fff;
         color: #0a0a0a;
         transition: 250ms;
-    }
-    Button {
-        display: none;
     }
 }
